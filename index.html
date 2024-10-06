@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+        }
+        div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Curriculum Vitae</h1>
+
+    <div>
+        <h2>Informazioni Personali</h2>
+        <p>Nome: <span id="nome"></span></p>
+        <p>Cognome: <span id="cognome"></span></p>
+        <p>Data di nascita: <span id="data-nascita"></span></p>
+        <p>Email: <span id="email"></span></p>
+    </div>
+
+    <div>
+        <h2>Istruzione e Formazione</h2>
+        <p>Istituto: <span id="istituto"></span></p>
+        <p>Periodo: <span id="periodo-istruzione"></span></p>
+        <p>Qualifica Conseguìta: <span id="qualifica"></span></p>
+    </div>
+
+    <div>
+        <h2>Esperienza Lavorativa</h2>
+        <p>Datore di lavoro: <span id="datore"></span></p>
+        <p>Ruolo: <span id="ruolo-lavoro"></span></p>
+        <p>Periodo: <span id="periodo-lavoro"></span></p>
+        <p>Mansioni: <span id="mansioni"></span></p>
+    </div>
+
+    <div>
+        <h2>Competenze Linguistiche</h2>
+        <p>Lingua Madre: <span id="lingua-madre"></span></p>
+        <p>Altra Lingua: <span id="altra-lingua"></span></p>
+        <p>Livello di Lettura: <span id="lettura"></span></p>
+        <p>Livello di Scrittura: <span id="scrittura"></span></p>
+        <p>Livello di Espressione Orale: <span id="espressione-orale"></span></p>
+    </div>
+
+    <script>
+        let file = {
+            "informazioniPersonali": {
+                "nome": "",
+                "cognome": "",
+                "dataDiNascita": "",
+                "contatti": {
+                    "email": ""
+                }
+            },
+            "istruzioneEFormazione": [
+                {
+                    "periodo": "2024/2025",
+                    "istituto": "",
+                    "qualificaConseguita": false
+                }
+            ],
+            "esperienzaLavorativa": [
+                {
+                    "datoreDiLavoro": {
+                        "nome": null
+                    },
+                    "ruolo": null,
+                    "periodo": null,
+                    "principaliMansioniEResponsabilità": [null]
+                }
+            ],
+            "lingue": {
+                "linguaMadre": "italiano",
+                "altreLingue": [
+                    {
+                        "lingua": null,
+                        "competenze": {
+                            "lettura": null,
+                            "scrittura": null,
+                            "espressioneOrale": null
+                        }
+                    }
+                ]
+            }
+        };
+
+        document.getElementById("nome").innerHTML = file.informazioniPersonali.nome;
+        document.getElementById("cognome").innerHTML = file.informazioniPersonali.cognome;
+        document.getElementById("data-nascita").innerHTML = file.informazioniPersonali.dataDiNascita;
+        document.getElementById("email").innerHTML = file.informazioniPersonali.contatti.email;
+
+        document.getElementById("istituto").innerHTML = file.istruzioneEFormazione[0].istituto;
+        document.getElementById("periodo-istruzione").innerHTML = file.istruzioneEFormazione[0].periodo;
+        document.getElementById("qualifica").innerHTML = file.istruzioneEFormazione[0].qualificaConseguita ? "Sì" : "No";
+
+        document.getElementById("datore").innerHTML = file.esperienzaLavorativa[0].datoreDiLavoro.nome ? file.esperienzaLavorativa[0].datoreDiLavoro.nome : "N/A";
+        document.getElementById("ruolo-lavoro").innerHTML = file.esperienzaLavorativa[0].ruolo ? file.esperienzaLavorativa[0].ruolo : "N/A";
+        document.getElementById("periodo-lavoro").innerHTML = file.esperienzaLavorativa[0].periodo ? file.esperienzaLavorativa[0].periodo : "N/A";
+        document.getElementById("mansioni").innerHTML = file.esperienzaLavorativa[0].principaliMansioniEResponsabilità[0] ? file.esperienzaLavorativa[0].principaliMansioniEResponsabilità[0] : "N/A";
+
+        document.getElementById("lingua-madre").innerHTML = file.lingue.linguaMadre;
+        document.getElementById("altra-lingua").innerHTML = file.lingue.altreLingue[0].lingua ? file.lingue.altreLingue[0].lingua : "N/A";
+        document.getElementById("lettura").innerHTML = file.lingue.altreLingue[0].competenze.lettura ? file.lingue.altreLingue[0].competenze.lettura : "N/A";
+        document.getElementById("scrittura").innerHTML = file.lingue.altreLingue[0].competenze.scrittura ? file.lingue.altreLingue[0].competenze.scrittura : "N/A";
+        document.getElementById("espressione-orale").innerHTML = file.lingue.altreLingue[0].competenze.espressioneOrale ? file.lingue.altreLingue[0].competenze.espressioneOrale : "N/A";
+    </script>
+</body>
+</html>
